@@ -1,80 +1,152 @@
-/* Color Theme */
+/* Root variables for dark theme */
 :root {
-    --primary: #FFF6EA;
-    --secondary: #857f78;
-    --dark-bg: #003858;
-    --darker-bg: #56C1FF;
-    --deep-dark: #045E8F;
+    --primary: #0D45D6;
+    --secondary: #072778;
+    --dark-bg: #031238;
+    --darker-bg: #030E2B;
+    --deep-dark: #020B22;
     --text-light: #FFFFFF;
     --text-muted: #A0A0A0;
 }
 
+/* General body styling */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    padding: 0;
     background-color: var(--deep-dark);
     color: var(--text-light);
+    overflow-x: hidden;
 }
 
+/* Full-page container for scrolling */
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Header Section */
 header {
-    background-color: var(--dark-bg);
-    color: var(--text-light);
     text-align: center;
-    padding: 20px;
+    margin-bottom: 50px;
 }
 
-h1 {
-    margin: 0;
+header h1 {
+    font-size: 2.5rem;
     color: var(--primary);
 }
 
-.about, .projects, .contact {
+/* Scrollable project section */
+.project-section {
+    width: 100%;
+    max-width: 1200px;
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-bottom: 40px;
+    overflow: hidden;
+}
+
+/* Container for the projects */
+.project-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    flex-wrap: nowrap;
+    overflow: hidden;
+    z-index: 10;
+}
+
+/* Individual project cards */
+.project-card {
+    position: absolute;
+    width: 60vw;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: var(--darker-bg);
+    box-shadow: 0 10px 30px rgba(12, 69, 213, 0.3);
+    border-radius: 15px;
+    transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out, z-index 0.3s, box-shadow 0.5s ease-in-out;
+    opacity: 0.6;
+    transform: translate(-50%, -50%) scale(0.9) rotateY(-15deg);
+}
+
+/* Active project card (Front) */
+.project-card.active {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1) rotateY(0deg);
+    box-shadow: 0 0 40px rgba(12, 69, 213, 0.8), 0 0 100px rgba(12, 69, 213, 0.5);
+}
+
+/* Images inside project cards */
+.project-card img {
     width: 80%;
-    margin: 20px auto;
-    background: var(--darker-bg);
-    padding: 20px;
+    max-height: 50vh;
+    object-fit: cover;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(12, 69, 213, 0.2);
+    margin-bottom: 20px;
 }
 
-h2 {
-    border-bottom: 2px solid var(--primary);
-    padding-bottom: 5px;
-}
-
-ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-ul li {
-    background: var(--secondary);
-    margin: 5px 0;
-    padding: 10px;
-    border-radius: 5px;
-    transition: background 0.3s;
-}
-
-ul li:hover {
-    background: var(--primary);
-}
-
-ul li a {
-    text-decoration: none;
-    color: var(--text-light);
+/* Project title */
+.project-title {
+    font-size: 1.8rem;
     font-weight: bold;
+    margin-bottom: 10px;
 }
 
-.contact a {
-    color: var(--primary);
-    text-decoration: none;
+/* Project description */
+.project-description {
+    font-size: 1rem;
+    color: var(--text-muted);
+    max-width: 80%;
 }
 
+/* Arrow buttons for navigation */
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: var(--text-light);
+    border: none;
+    padding: 20px;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s ease;
+    z-index: 1000;
+    border-radius: 50%;
+}
+
+.arrow:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
+}
+
+.arrow.left {
+    left: 20px;
+}
+
+.arrow.right {
+    right: 20px;
+}
+
+/* Footer Section */
 footer {
     text-align: center;
-    padding: 10px;
-    background-color: var(--dark-bg);
+    margin-top: 40px;
     color: var(--text-muted);
-    margin-top: 20px;
+}
+
+footer p {
+    font-size: 1rem;
 }
