@@ -1,4 +1,3 @@
-/*! For license information please see main.e7c7970a12833611eb02.js.LICENSE.txt */
 (() => {
    var e = {
          945: function (e, t, n) {
